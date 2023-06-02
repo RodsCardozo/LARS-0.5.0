@@ -208,7 +208,7 @@ conduc = {'1': [2, 4, 5, 6],
           }
 lista_nomes = list(conduc.keys())
 K = pd.DataFrame(conduc)
-
+print(K)
 # Define a matriz inicial preenchida por zeros
 
 K_m = np.zeros((len(conduc), len(conduc)))
@@ -217,9 +217,8 @@ K_m = np.zeros((len(conduc), len(conduc)))
 
 for i in range(0, len(conduc)):
 
-    A = K.columns[i]  # Recebe a posicao da coluna dada o valor de i
     B = set(K.iloc[:, K.columns.get_loc(lista_nomes[i])])  # Recebe o valor dentro do DF dada
-
+    print(B)
     for j in range(0, len(conduc)):
         if i == j:
             K_m[i, j] = 0

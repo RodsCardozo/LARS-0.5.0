@@ -173,10 +173,10 @@ superficie - foil tape, plain
 a = 0.32
 e = 0.02
 """
-basepainel5 = BasePainel('13', Lx=0.001, Ly=0.084, Lz=0.1,  n='i', e=0.02, a=0.32, rho=8580.0, k=122.9, cp=378.0)
-basepainel6 = BasePainel('14', Lx=0.001, Ly=0.084, Lz=0.1,  n='j', e=0.02, a=0.32, rho=8580.0, k=122.9, cp=378.0)
-basepainel7 = BasePainel('15', Lx=0.001, Ly=0.084, Lz=0.1,  n='i', e=0.02, a=0.32, rho=8580.0, k=122.9, cp=378.0)
-basepainel8 = BasePainel('16', Lx=0.001, Ly=0.084, Lz=0.1,  n='j', e=0.02, a=0.32, rho=8580.0, k=122.9, cp=378.0)
+basecobre1 = BaseCobre('13', Lx=0.001, Ly=0.084, Lz=0.1,  n='i', e=0.02, a=0.32, rho=8580.0, k=122.9, cp=378.0)
+basecobre2 = BaseCobre('14', Lx=0.001, Ly=0.084, Lz=0.1,  n='j', e=0.02, a=0.32, rho=8580.0, k=122.9, cp=378.0)
+basecobre3 = BaseCobre('15', Lx=0.001, Ly=0.084, Lz=0.1,  n='i', e=0.02, a=0.32, rho=8580.0, k=122.9, cp=378.0)
+basecobre4 = BaseCobre('16', Lx=0.001, Ly=0.084, Lz=0.1,  n='j', e=0.02, a=0.32, rho=8580.0, k=122.9, cp=378.0)
 
 
 # Tampa superior e inferior
@@ -239,15 +239,15 @@ estrutura_horizontal1 = Estrutura('31', Lx=0.002, Ly=0.008, Lz=0.1, n='i', e=0.3
 estrutura_horizontal2 = Estrutura('32', Lx=0.002, Ly=0.008, Lz=0.1, n='i', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
 estrutura_horizontal3 = Estrutura('33', Lx=0.002, Ly=0.008, Lz=0.1, n='i', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
 estrutura_horizontal4 = Estrutura('34', Lx=0.002, Ly=0.008, Lz=0.1, n='i', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
-estrutura_horizontal5 = Estrutura('35', Lx=0.002, Ly=0.008, Lz=0.1, n='k', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
-estrutura_horizontal6 = Estrutura('36', Lx=0.002, Ly=0.008, Lz=0.1, n='k', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
-estrutura_horizontal7 = Estrutura('37', Lx=0.002, Ly=0.008, Lz=0.1, n='k', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
-estrutura_horizontal8 = Estrutura('38', Lx=0.002, Ly=0.008, Lz=0.1, n='k', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
+estrutura_horizontal5 = Estrutura('35', Lx=0.002, Ly=0.008, Lz=0.1, n='j', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
+estrutura_horizontal6 = Estrutura('36', Lx=0.002, Ly=0.008, Lz=0.1, n='j', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
+estrutura_horizontal7 = Estrutura('37', Lx=0.002, Ly=0.008, Lz=0.1, n='j', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
+estrutura_horizontal8 = Estrutura('38', Lx=0.002, Ly=0.008, Lz=0.1, n='j', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
 
-estrutura_horizontal9 = Estrutura('39', Lx=0.084, Ly=0.008, Lz=0.002, n='j', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
-estrutura_horizontal10 = Estrutura('40', Lx=0.084, Ly=0.008, Lz=0.002, n='j', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
-estrutura_horizontal11 = Estrutura('41', Lx=0.084, Ly=0.008, Lz=0.002, n='j', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
-estrutura_horizontal12 = Estrutura('42', Lx=0.084, Ly=0.008, Lz=0.002, n='j', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
+estrutura_horizontal9 = Estrutura('39', Lx=0.084, Ly=0.008, Lz=0.002, n='k', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
+estrutura_horizontal10 = Estrutura('40', Lx=0.084, Ly=0.008, Lz=0.002, n='k', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
+estrutura_horizontal11 = Estrutura('41', Lx=0.084, Ly=0.008, Lz=0.002, n='k', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
+estrutura_horizontal12 = Estrutura('42', Lx=0.084, Ly=0.008, Lz=0.002, n='k', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
 estrutura_horizontal13 = Estrutura('43', Lx=0.084, Ly=0.008, Lz=0.002, n='k', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
 estrutura_horizontal14 = Estrutura('44', Lx=0.084, Ly=0.008, Lz=0.002, n='k', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
 estrutura_horizontal15 = Estrutura('45', Lx=0.084, Ly=0.008, Lz=0.002, n='k', e=0.3, a = 0.13, rho=2770.0, k=121.2, cp=961.2)
@@ -262,25 +262,138 @@ cp = 961.2 J/kg.K
 e = 0.3
 a = 0.13
 """
-parafuso1 = Parafusos('47', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso2 = Parafusos('48', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso3 = Parafusos('49', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso4 = Parafusos('50', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso5 = Parafusos('51', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso6 = Parafusos('52', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso7 = Parafusos('53', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso8 = Parafusos('54', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso9 = Parafusos('55', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso10 = Parafusos('56', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso11 = Parafusos('57', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso12 = Parafusos('58', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso13 = Parafusos('59', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso14 = Parafusos('60', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso15 = Parafusos('61', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso16 = Parafusos('62', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso17 = Parafusos('63', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso18 = Parafusos('64', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso19 = Parafusos('65', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
-parafuso20 = Parafusos('66', Lx=14.0, Ly=0.005, Lz=0.005, rho=2770.0, k=121.2, cp=961.2)
+parafuso1 = Parafusos('47', Lx=0.005, Ly=0.005, Lz=0.014,  rho=2770.0, k=121.2, cp=961.2)
+parafuso2 = Parafusos('48', Lx=0.005, Ly=0.005, Lz=0.014, rho=2770.0, k=121.2, cp=961.2)
+parafuso3 = Parafusos('49', Lx=0.005, Ly=0.005, Lz=0.014, rho=2770.0, k=121.2, cp=961.2)
+parafuso4 = Parafusos('50', Lx=0.005, Ly=0.005, Lz=0.014, rho=2770.0, k=121.2, cp=961.2)
+parafuso5 = Parafusos('51', Lx=0.005, Ly=0.005, Lz=0.014, rho=2770.0, k=121.2, cp=961.2)
+parafuso6 = Parafusos('52', Lx=0.005, Ly=0.005, Lz=0.014, rho=2770.0, k=121.2, cp=961.2)
+parafuso7 = Parafusos('53', Lx=0.005, Ly=0.005, Lz=0.014, rho=2770.0, k=121.2, cp=961.2)
+parafuso8 = Parafusos('54', Lx=0.005, Ly=0.005, Lz=0.014, rho=2770.0, k=121.2, cp=961.2)
+parafuso9 = Parafusos('55', Lx=0.005, Ly=0.005, Lz=0.020, rho=2770.0, k=121.2, cp=961.2)
+parafuso10 = Parafusos('56', Lx=0.005, Ly=0.005, Lz=0.020, rho=2770.0, k=121.2, cp=961.2)
+parafuso11 = Parafusos('57', Lx=0.005, Ly=0.005, Lz=0.020, rho=2770.0, k=121.2, cp=961.2)
+parafuso12 = Parafusos('58', Lx=0.005, Ly=0.005, Lz=0.020, rho=2770.0, k=121.2, cp=961.2)
+parafuso13 = Parafusos('59', Lx=0.005, Ly=0.005, Lz=0.020, rho=2770.0, k=121.2, cp=961.2)
+parafuso14 = Parafusos('60', Lx=0.005, Ly=0.005, Lz=0.020, rho=2770.0, k=121.2, cp=961.2)
+parafuso15 = Parafusos('61', Lx=0.005, Ly=0.005, Lz=0.020, rho=2770.0, k=121.2, cp=961.2)
+parafuso16 = Parafusos('62', Lx=0.005, Ly=0.005, Lz=0.020, rho=2770.0, k=121.2, cp=961.2)
+parafuso17 = Parafusos('63', Lx=0.005, Ly=0.005, Lz=0.020, rho=2770.0, k=121.2, cp=961.2)
+parafuso18 = Parafusos('64', Lx=0.005, Ly=0.005, Lz=0.020, rho=2770.0, k=121.2, cp=961.2)
+parafuso19 = Parafusos('65', Lx=0.005, Ly=0.005, Lz=0.020, rho=2770.0, k=121.2, cp=961.2)
+parafuso20 = Parafusos('66', Lx=0.005, Ly=0.005, Lz=0.020, rho=2770.0, k=121.2, cp=961.2)
 
+nos = [substrato1, substrato2, substrato3, substrato4, substrato5, substrato6, substrato7, substrato8,
+       basepainel1, basepainel2, basepainel3, basepainel4, basecobre1, basecobre2, basecobre3, basecobre4,
+       tampa1, tampa2,
+       pcb1, pcb2, pcb3, pcb4,
+       estrutura_vertical1,estrutura_vertical2,estrutura_vertical3,estrutura_vertical4,estrutura_vertical5,estrutura_vertical6,estrutura_vertical7,estrutura_vertical8,
+       estrutura_horizontal1,estrutura_horizontal2,estrutura_horizontal3,estrutura_horizontal4,estrutura_horizontal5,estrutura_horizontal6,
+       estrutura_horizontal7,estrutura_horizontal8,estrutura_horizontal9,estrutura_horizontal10,estrutura_horizontal11,estrutura_horizontal12,
+       estrutura_horizontal13,estrutura_horizontal14,estrutura_horizontal15,estrutura_horizontal16,
+       parafuso1, parafuso2, parafuso3, parafuso4, parafuso5, parafuso6, parafuso7, parafuso8, parafuso9, parafuso10,
+       parafuso11, parafuso12, parafuso13, parafuso14, parafuso15, parafuso16, parafuso17, parafuso18, parafuso19, parafuso20]
 
+# Conexões de condução entre os nós
+
+conduc= {substrato1.nome: [basepainel1.nome],
+         substrato2.nome: [basepainel1.nome],
+         basepainel1.nome: [substrato1.nome, substrato2.nome, basecobre1.nome],
+         basecobre1.nome: [basepainel1.nome, estrutura_horizontal1.nome, estrutura_horizontal2.nome],
+         substrato3.nome: [basepainel2.nome],
+         substrato4.nome: [basepainel2.nome],
+         basepainel2.nome: [substrato3.nome, substrato4.nome, basecobre2.nome],
+         basecobre2.nome: [basepainel2.nome, estrutura_horizontal3.nome, estrutura_horizontal4.nome],
+         substrato5.nome: [basepainel3.nome],
+         substrato6.nome: [basepainel3.nome],
+         basepainel3.nome: [substrato5.nome, substrato6.nome, basecobre3.nome],
+         basecobre3.nome: [basepainel3.nome, estrutura_horizontal5.nome, estrutura_horizontal6.nome],
+         substrato7.nome: [basepainel4.nome],
+         substrato8.nome: [basepainel4.nome],
+         basepainel4.nome: [substrato7.nome, substrato8.nome, basecobre4.nome],
+         basecobre4.nome: [basepainel4.nome, estrutura_horizontal7.nome, estrutura_horizontal8.nome],
+         estrutura_horizontal1.nome: [basecobre1.nome, estrutura_horizontal9.nome, estrutura_vertical1.nome, estrutura_vertical2.nome],
+         estrutura_horizontal2.nome: [basecobre1.nome, estrutura_horizontal10.nome, estrutura_vertical1.nome, estrutura_vertical2.nome],
+         estrutura_horizontal3.nome: [basecobre2.nome, estrutura_horizontal11.nome, estrutura_vertical3.nome, estrutura_vertical4.nome],
+         estrutura_horizontal4.nome: [basecobre2.nome, estrutura_horizontal12.nome, estrutura_vertical3.nome, estrutura_vertical4.nome],
+         estrutura_horizontal5.nome: [basecobre3.nome, estrutura_horizontal13.nome, estrutura_vertical5.nome, estrutura_vertical6.nome],
+         estrutura_horizontal6.nome: [basecobre3.nome, estrutura_horizontal14.nome, estrutura_vertical5.nome, estrutura_vertical6.nome],
+         estrutura_horizontal7.nome: [basecobre4.nome, estrutura_horizontal15.nome, estrutura_vertical7.nome, estrutura_vertical8.nome],
+         estrutura_horizontal8.nome: [basecobre4.nome, estrutura_horizontal16.nome, estrutura_vertical7.nome, estrutura_vertical8.nome ],
+         tampa1.nome: [estrutura_horizontal1.nome, estrutura_horizontal3.nome, estrutura_horizontal5.nome, estrutura_horizontal7.nome, parafuso1.nome, parafuso2.nome, parafuso3.nome, parafuso4.nome],
+         tampa2.nome: [estrutura_horizontal2.nome, estrutura_horizontal4.nome, estrutura_horizontal6.nome, estrutura_horizontal8.nome, parafuso5.nome, parafuso6.nome, parafuso7.nome, parafuso8.nome],
+         parafuso1.nome: [tampa1.nome, pcb1.nome],
+         parafuso2.nome: [tampa1.nome, pcb1.nome],
+         parafuso3.nome: [tampa1.nome, pcb1.nome],
+         parafuso4.nome: [tampa1.nome, pcb1.nome],
+         parafuso5.nome: [tampa2.nome, pcb4.nome],
+         parafuso6.nome: [tampa2.nome, pcb4.nome],
+         parafuso7.nome: [tampa2.nome, pcb4.nome],
+         parafuso8.nome: [tampa2.nome, pcb4.nome],
+         parafuso9.nome: [pcb1.nome, pcb2.nome],
+         parafuso10.nome: [pcb1.nome, pcb2.nome],
+         parafuso11.nome: [pcb1.nome, pcb2.nome],
+         parafuso12.nome: [pcb1.nome, pcb2.nome],
+         parafuso13.nome: [pcb2.nome, pcb3.nome],
+         parafuso14.nome: [pcb2.nome, pcb3.nome],
+         parafuso15.nome: [pcb2.nome, pcb3.nome],
+         parafuso16.nome: [pcb2.nome, pcb3.nome],
+         parafuso17.nome: [pcb3.nome, pcb4.nome],
+         parafuso18.nome: [pcb3.nome, pcb4.nome],
+         parafuso19.nome: [pcb3.nome, pcb4.nome],
+         parafuso20.nome: [pcb3.nome, pcb4.nome],
+         pcb1.nome: [parafuso1.nome, parafuso2.nome, parafuso3.nome, parafuso4.nome, parafuso9.nome, parafuso10.nome, parafuso11.nome, parafuso12.nome],
+         pcb2.nome: [parafuso9.nome, parafuso10.nome, parafuso11.nome, parafuso12.nome, parafuso13.nome, parafuso14.nome, parafuso15.nome, parafuso16.nome],
+         pcb3.nome: [parafuso13.nome, parafuso14.nome, parafuso15.nome, parafuso16.nome, parafuso17.nome, parafuso18.nome, parafuso19.nome, parafuso20.nome],
+         pcb4.nome: [parafuso17.nome, parafuso18.nome, parafuso19.nome, parafuso20.nome, parafuso5.nome, parafuso6.nome, parafuso7.nome, parafuso8.nome],
+         estrutura_vertical1.nome: [estrutura_horizontal1.nome, estrutura_horizontal2.nome, estrutura_vertical2.nome],
+         estrutura_vertical2.nome: [estrutura_horizontal3.nome, estrutura_horizontal4.nome, estrutura_vertical1.nome],
+         estrutura_vertical3.nome: [estrutura_horizontal3.nome, estrutura_horizontal4.nome, estrutura_vertical4.nome],
+         estrutura_vertical4.nome: [estrutura_horizontal5.nome, estrutura_horizontal6.nome, estrutura_vertical3.nome],
+         estrutura_vertical5.nome: [estrutura_horizontal5.nome, estrutura_horizontal6.nome, estrutura_vertical6.nome],
+         estrutura_vertical6.nome: [estrutura_horizontal7.nome, estrutura_horizontal8.nome, estrutura_vertical5.nome],
+         estrutura_vertical7.nome: [estrutura_horizontal7.nome, estrutura_horizontal8.nome, estrutura_vertical8.nome],
+         estrutura_vertical8.nome: [estrutura_horizontal1.nome, estrutura_horizontal2.nome, estrutura_vertical7.nome],
+         estrutura_horizontal9.nome: [tampa1.nome, estrutura_vertical1.nome, estrutura_vertical8.nome, estrutura_horizontal1.nome],
+         estrutura_horizontal10.nome: [tampa1.nome, estrutura_vertical2.nome, estrutura_vertical3.nome, estrutura_horizontal3.nome],
+         estrutura_horizontal11.nome: [tampa1.nome, estrutura_vertical4.nome, estrutura_vertical5.nome, estrutura_horizontal5.nome],
+         estrutura_horizontal12.nome: [tampa1.nome, estrutura_vertical6.nome, estrutura_vertical7.nome, estrutura_horizontal7.nome],
+         estrutura_horizontal13.nome: [tampa2.nome, estrutura_vertical1.nome, estrutura_vertical8.nome, estrutura_horizontal2.nome],
+         estrutura_horizontal14.nome: [tampa2.nome, estrutura_vertical2.nome, estrutura_vertical3.nome, estrutura_horizontal4.nome],
+         estrutura_horizontal15.nome: [tampa2.nome, estrutura_vertical4.nome, estrutura_vertical5.nome, estrutura_horizontal6.nome],
+         estrutura_horizontal16.nome: [tampa2.nome, estrutura_vertical6.nome, estrutura_vertical7.nome, estrutura_horizontal6.nome]
+}
+def ordena_nome(lista):
+    a = list(lista.keys())
+    b = []
+    for valor in a:
+        b.append(int(valor))
+    b.sort()
+    lista_nomes = []
+    for valor in b:
+        lista_nomes.append(str(valor))
+    return lista_nomes
+
+lista_nomes = ordena_nome(conduc)
+
+# Define a matriz inicial preenchida por zeros
+
+K_m = np.zeros((len(conduc), len(conduc)))
+
+# Lógica para preencher a matriz com 1 onde existe condução entre nós
+
+for chave in conduc.keys():
+    A = (conduc[chave])
+    for valor in A:
+        K_m[int(chave)-1, int(valor)-1] = 1
+
+# Disntância entre nós
+
+nomes = list(conduc.keys())
+valores = list(conduc.values())
+L = {}
+j = 0
+for valor in valores:
+    for i in range(len(valor)):
+        L[" ".join([nomes[j], valor[i]])] = input(f'Comprimento de {nomes[j]} a {valor[i]}: ')
+    j += 1
