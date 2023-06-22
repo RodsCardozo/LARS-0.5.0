@@ -341,17 +341,17 @@ def calor_incidente(posicao_orientacao, radiacao_solar, radiacao_terra, emissivi
         FS5 = FS(VP, d5)
         FS6 = FS(VP, d6)
 
-        Qrad1.append((FS1)) #e * Ir *
+        Qrad1.append(e * Ir *(FS1)) #e * Ir *
 
-        Qrad2.append((FS2))
+        Qrad2.append(e * Ir *(FS2))
 
-        Qrad3.append((FS3))
+        Qrad3.append(e * Ir *(FS3))
 
-        Qrad4.append((FS4))
+        Qrad4.append(e * Ir *(FS4))
 
-        Qrad5.append((FS5))
+        Qrad5.append(e * Ir *(FS5))
 
-        Qrad6.append((FS6))
+        Qrad6.append(e * Ir *(FS6))
 
     rad_sol = []
     for i in range(0, len(Qs1), 1):

@@ -133,11 +133,80 @@ def taxa_precessao(ecc, semi_eixo_maior, inc):
     omega_pre = -((3 * math.sqrt(mu) * j2 * R_E**2) / (2 * (1 - ecc**2)**2 * semi_eixo_maior**(7/2))) * math.cos(math.radians(inc))
     return omega_pre
 
+def beta_raan(beta, date, inc):
+    import numpy as np
+    import ephem
+    import math
+    from datetime import datetime
+    def utc_to_jd(date):
+        # separa a string data
+        dt = date
 
+        # converte datetime para tempo juliano
+        a = (14 - dt.month) // 12
+        y = dt.year + 4800 - a
+        m = dt.month + 12 * a - 3
+        jd = dt.day + (153 * m + 2) // 5 + 365 * y + y // 4 - y // 100 + y // 400 - 32045
+
+        # adiciona fração do dia
+        frac_day = (dt.hour - 12) / 24.0 + dt.minute / 1440.0 + dt.second / 86400.0
+        jd += frac_day
+
+        return jd
+
+    if type(date) == str:
+        input_string = date
+        date = datetime.strptime(input_string, '%m/%d/%Y %H:%M:%S')
+    else:
+        date = date
+    # calcula a data juliana para hoje
+
+    data = datetime(month=date.month, day=date.day, year=date.year, hour=date.hour, minute=date.minute)
+
+    # calcula o século juliano
+    T_uti = (utc_to_jd(data) - 2451545.0) / 36525
+
+    T_tdb = T_uti
+
+    # calcula a longitude média do sol
+    lamb_M = (280.46 + 36000.771 * T_tdb) % 360
+
+    # anomalida média do sol
+    M_sol = 357.5291092 + 35999.05034*T_tdb
+
+    # Criando um objeto para a data desejada
+    data = ephem.Date(date)
+
+    # Criando um objeto para o Sol
+    sol = ephem.Sun()
+
+    # Atualizando as coordenadas do Sol para a data desejada
+    sol.compute(data)
+
+    # Obtendo a declinação em radianos
+    dec = sol.dec
+
+    # inclincaçao da orbita terrestre
+    e = np.radians(23.4)
+
+    # longitude da ecliptica
+    lamb_ecl = lamb_M + 1.914666471 * np.sin(np.radians(M_sol)) + 0.019994643*np.sin(2*M_sol)
+
+    # vetor do plano do satelite
+    inc = np.radians(inc)
+    from sympy import nsolve, Symbol, cos, sin, asin
+    raan = Symbol('raan')
+    eq = - beta + asin(np.dot([np.cos(np.radians(lamb_ecl)), np.sin(np.radians(lamb_ecl))*np.cos(e),
+         np.sin(np.radians(lamb_ecl))*np.sin(e)], [sin(raan) * np.sin(inc), -cos(raan) * np.sin(inc), np.cos(inc)]))
+
+    return nsolve(eq, 1.0)
+a = beta_raan(0.0, '01/01/2015 00:00:00', 80.0)
+import numpy as np
+print(f'valor de raan para que seja beta 0: {a * 180/np.pi}')
 if __name__ == '__main__':
     import numpy as np
 
-    beta_iss = beta_angle('01/01/2015 00:00:00', 51.63, 82.0)
+    beta_iss = beta_angle('01/01/2015 00:00:00', 80.0, 96.8277534533855)
     print(np.degrees(beta_iss))
     import pandas as pd
     from datetime import datetime, timedelta
@@ -153,7 +222,7 @@ if __name__ == '__main__':
         raan.append(np.degrees(raan_var))
         raan0 = raan_var
 
-    beta = [beta_angle('06/01/2015 00:00:00', inc, y) for y in range(0,365)]
+    beta = [beta_angle('01/01/2015 00:00:00', inc, y) for y in range(0,365)]
     print(np.degrees(beta))
     df = pd.DataFrame(np.degrees(beta), columns=['Beta'])
     import plotly.express as px
