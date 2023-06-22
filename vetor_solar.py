@@ -1,4 +1,4 @@
-def vetor_solar(date):
+def posicao_sol(date):
     """
     :param date: date of interest
     :return: solar vector
@@ -76,7 +76,6 @@ def beta_angle(date, inc, raan):
 
     if type(date) == str:
         input_string = date
-        print((input_string))
         date = datetime.strptime(input_string, '%m/%d/%Y %H:%M:%S')
     else:
         date = date
@@ -135,15 +134,17 @@ def taxa_precessao(ecc, semi_eixo_maior, inc):
     return omega_pre
 
 
-'''if __name__ == '__main__':
+if __name__ == '__main__':
     import numpy as np
-    beta_iss = beta_angle('03/21/2020 17:00:00', 70.6, 0.0)
+
+    beta_iss = beta_angle('01/01/2015 00:00:00', 51.63, 82.0)
+    print(np.degrees(beta_iss))
     import pandas as pd
     from datetime import datetime, timedelta
-    dia_ini = '01/01/2023 18:00:00'
+    dia_ini = '01/01/2015 00:00:00'
     ini_date = datetime.strptime(dia_ini, "%m/%d/%Y %H:%M:%S")
     data = [ini_date + timedelta(days=x) for x in range(0,365)]
-    inc = 15
+    inc = 51.63
     raan0 = 0.0
     raan = []
     for i in range(0, 365):
@@ -151,18 +152,18 @@ def taxa_precessao(ecc, semi_eixo_maior, inc):
 
         raan.append(np.degrees(raan_var))
         raan0 = raan_var
-    print(raan)
-    beta = [np.degrees(beta_angle(x, inc, y)) for x,y in zip(data,raan)]
-    print(beta)
-    df = pd.DataFrame(beta, columns=['Beta'])
+
+    beta = [beta_angle('06/01/2015 00:00:00', inc, y) for y in range(0,365)]
+    print(np.degrees(beta))
+    df = pd.DataFrame(np.degrees(beta), columns=['Beta'])
     import plotly.express as px
     fig = px.line(df)
-    fig.show()'''
+    fig.show()
 
 '''from datetime import datetime, timedelta
 inicio = datetime(day=20, month=3, year=2023, hour=12, minute=0)
 dias = [inicio + timedelta(days=x) for x in range(0,365)]
-sol_dia = [vetor_solar(dia) for dia in dias]
+sol_dia = [posicao_sol(dia) for dia in dias]
 
 import pandas as pd
 import numpy as np
@@ -186,6 +187,11 @@ for i in range(0, len(sol_dia)):
 df = pd.DataFrame(sol_dia, columns=['x', 'y', 'z'])
 df['latitude'] = lat
 df['longitude'] = long
-print(df)
-from plots import plot_groundtrack_2D
-plot_groundtrack_2D(df)'''
+df['dia'] = dias
+
+
+import plotly.express as px
+
+fig = px.line(df, x="longitude", y="latitude", text="dia")
+fig.update_traces(textposition="bottom right")
+fig.show()'''

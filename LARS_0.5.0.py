@@ -152,7 +152,7 @@ plot_calor_Terra = plots.calor_IR_Terra(calor_total)
 plot_calor_albedo = plots.calor_albedo(calor_total)
 plot_calor_total = plots.calor_total(calor_total)
 size = SMA*1.1
-plot_animacao = plots.plot_animacao_orbita(Propagacao_orbital, size)
+'''plot_animacao = plots.plot_animacao_orbita(Propagacao_orbital, size)'''
 
 
 '''from bot_simulacao import bot_orbital

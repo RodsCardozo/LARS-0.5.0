@@ -299,3 +299,4 @@ abas.pack()
 # Inicie o loop principal da interface gráfica
 janela.mainloop()'''
 
+print([273 for i in range(0,100)])

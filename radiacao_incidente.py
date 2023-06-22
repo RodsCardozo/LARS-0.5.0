@@ -42,9 +42,9 @@ def calor_incidente(posicao_orientacao, radiacao_solar, radiacao_terra, emissivi
     ai = absortividade_satelite  # absortividade do satelite
     gama = refletividade_terra   # refletividade da Terra
     Raio_terra = 6371.0
-    from vetor_solar import vetor_solar
-    Vs = np.array(vetor_solar(data)) # vetor solar
-    print(f'Vetor solar: {Vs}')
+    from vetor_solar import posicao_sol
+    Vs = np.array(posicao_sol(data)) # vetor solar
+    print(f'Vetor solar: {Vs/np.linalg.norm(Vs)}')
     Ni = [[1, 0, 0],
           [0, 1, 0],
           [-1, 0, 0],
@@ -63,22 +63,22 @@ def calor_incidente(posicao_orientacao, radiacao_solar, radiacao_terra, emissivi
              ['N5_X', 'N5_Y', 'N5_Z'],
              ['N6_X', 'N6_Y', 'N6_Z']]
     R = []
-    psi = np.array(Posicao_orientacao['PSI'])
+    psi = np.array(Posicao_orientacao['PHI'])
     teta = np.array(Posicao_orientacao['TETA'])
-    phi = np.array(Posicao_orientacao['PHI'])
+    phi = np.array(Posicao_orientacao['PSI'])
 
     for j in range(0, len(Ni), 1):
         for i in range(0, len(Posicao_orientacao), 1):
             A = Ni[j]
 
-            PSI = psi[i]
+            PHI = psi[i]
             TETA = teta[i]
-            PHI = phi[i]
+            PSI = phi[i]
 
             vetor = A
 
 
-            Q_rot = np.array([[np.cos(PHI) * np.cos(PSI) - np.sin(PHI) * np.sin(PHI) * np.cos(TETA),
+            Q_rot = np.array([[np.cos(PHI) * np.cos(PSI) - np.sin(PHI) * np.sin(PSI) * np.cos(TETA),
                                np.cos(PHI) * np.sin(PSI) + np.sin(PHI) * np.cos(TETA) * np.cos(PSI),
                                np.sin(PHI) * np.sin(TETA)],
                               [-np.sin(PHI) * np.cos(PSI) - np.cos(PHI) * np.sin(PSI) * np.cos(TETA),
@@ -98,6 +98,7 @@ def calor_incidente(posicao_orientacao, radiacao_solar, radiacao_terra, emissivi
 
     import os.path
     Posicao_orientacao.to_csv(os.path.join('./results/', 'Posicao_orientacao.csv'), sep=',')
+
     tupla1 = list(zip(Posicao_orientacao['X_ECI'], Posicao_orientacao['Y_ECI'], Posicao_orientacao['Z_ECI']))
     vetor_posicao = [np.array(tupla) for tupla in tupla1]
 
@@ -239,7 +240,10 @@ def calor_incidente(posicao_orientacao, radiacao_solar, radiacao_terra, emissivi
              Posicao_orientacao.iloc[i, Posicao_orientacao.columns.get_loc('N6_Z')]])
 
         phi = (np.dot(Vs/np.linalg.norm(Vs), vetor_posicao[i] / np.linalg.norm(vetor_posicao[i])))
-        if np.pi > phi >= 0:
+        PSI = np.arccos(np.dot(vetor_posicao[i] / np.linalg.norm(vetor_posicao[i]), Vs / np.linalg.norm(Vs)))
+        QSI = np.arcsin(Raio_terra / np.linalg.norm((vetor_posicao[i])))
+
+        if PSI < np.pi/2:
 
             d1 = np.arccos(np.dot(-vetor_posicao[i] / np.linalg.norm(vetor_posicao[i]), A1 / np.linalg.norm(A1)))
             d2 = np.arccos(np.dot(-vetor_posicao[i] / np.linalg.norm(vetor_posicao[i]), A2 / np.linalg.norm(A2)))
@@ -337,17 +341,17 @@ def calor_incidente(posicao_orientacao, radiacao_solar, radiacao_terra, emissivi
         FS5 = FS(VP, d5)
         FS6 = FS(VP, d6)
 
-        Qrad1.append(e * Ir * (FS1)) #e * Ir *
+        Qrad1.append((FS1)) #e * Ir *
 
-        Qrad2.append(e * Ir * (FS2))
+        Qrad2.append((FS2))
 
-        Qrad3.append(e * Ir * (FS3))
+        Qrad3.append((FS3))
 
-        Qrad4.append(e * Ir * (FS4))
+        Qrad4.append((FS4))
 
-        Qrad5.append(e * Ir * (FS5))
+        Qrad5.append((FS5))
 
-        Qrad6.append(e * Ir * (FS6))
+        Qrad6.append((FS6))
 
     rad_sol = []
     for i in range(0, len(Qs1), 1):
@@ -376,6 +380,6 @@ def calor_incidente(posicao_orientacao, radiacao_solar, radiacao_terra, emissivi
 
     import os.path
     QT.to_csv(os.path.join('./results/', 'Calor_Incidente.csv'), sep=',')
-
+    print('Fim')
 
     return QT

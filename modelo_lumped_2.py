@@ -26,12 +26,9 @@ from datetime import datetime
 inicio = datetime.now()
 import fator_forma_interno as ff
 import numpy as np
-import pandas as pd
-import copy
 from tqdm import tqdm
 import pandas as pd
 import gc
-import tracemalloc
 
 import os, sys
 
@@ -165,13 +162,13 @@ class Face:
         self.k = k
         self.cp = cp
 
-face1 = Face(nome = 'Face1', x = 5.0, y = 0.0, z = 0.0, Lx = 0.02, Ly = 0.10, Lz = 0.30, n =  'i' , e = 0.32, a = 0.85,
+face1 = Face(nome = 'Face1', x = 5.0, y = 0.0, z = 0.0, Lx = 0.02, Ly = 0.10, Lz = 0.30, n =  'i' , e = 0.52, a = 0.85,
              rho = 2700.0, k = 200, cp = 920.0)
 
 face2 = Face(nome = 'Face2', x = 0.0, y = 5.0, z = 0.0, Lx = 0.10, Ly = 0.02, Lz = 0.30, n =  'j' , e = 0.32, a = 0.85,
              rho = 2700.0, k = 200, cp = 920.0)
 
-face3 = Face(nome = 'Face3', x = -5.0, y = 0.0, z = 0.0, Lx = 0.02, Ly = 0.10, Lz = 0.30, n =  'i' ,  e = 0.32, a = 0.85,
+face3 = Face(nome = 'Face3', x = -5.0, y = 0.0, z = 0.0, Lx = 0.02, Ly = 0.10, Lz = 0.30, n =  'i' ,  e = 0.82, a = 0.85,
              rho = 2700.0, k = 200, cp = 920.0)
 
 face4 = Face(nome = 'Face4', x = 0.0, y = -5.0, z = 0.0, Lx = 0.1, Ly = 0.02, Lz = 0.30, n =  'j' ,  e = 0.32, a = 0.85,
@@ -180,7 +177,7 @@ face4 = Face(nome = 'Face4', x = 0.0, y = -5.0, z = 0.0, Lx = 0.1, Ly = 0.02, Lz
 face5 = Face(nome = 'Face5', x = 0.0, y = 0.0, z = -15.0, Lx = 0.1, Ly = 0.10, Lz = 0.02, n =  'k' ,  e = 0.32, a = 0.85,
              rho = 2700.0, k = 200, cp = 920.0)
 
-face6 = Face(nome = 'Face6', x = 0.0, y = 0.0, z = 15.0, Lx = 0.1, Ly = 0.10, Lz = 0.02, n =  'k' ,  e = 0.32, a = 0.85,
+face6 = Face(nome = 'Face6', x = 0.0, y = 0.0, z = 15.0, Lx = 0.1, Ly = 0.10, Lz = 0.02, n =  'k' ,  e = 0.02, a = 0.85,
              rho = 2700.0, k = 200, cp = 920.0)
 
 faces = [face1, face2, face3, face4, face5, face6]
@@ -302,18 +299,19 @@ for nome in lista_nomes:
 
 F = ff_interno(faces)
 fg = fator_gebhart(faces, F)
+print(sum(fg[0]))
 
 # Calculando a variação de temperatura na órbita
 
 # importar as temperaturas da orbita
 calor = pd.read_csv("results/Calor_Incidente.csv", sep=',')
 # calor_total_face1 = calor.iloc[:, calor.columns.get_loc('Total 1')].tolist()
-'''calor_lump1 = np.array(calor['Total 1'])
+calor_lump1 = np.array(calor['Total 1'])
 calor_lump2 = np.array(calor['Total 2'])
 calor_lump3 = np.array(calor['Total 3'])
 calor_lump4 = np.array(calor['Total 4'])
 calor_lump5 = np.array(calor['Total 5'])
-calor_lump6 = np.array(calor['Total 6'])'''
+calor_lump6 = np.array(calor['Total 6'])
 
 calor_lump1 = np.array(calor['Total 1'])
 calor_lump2 = np.zeros(len(calor))
